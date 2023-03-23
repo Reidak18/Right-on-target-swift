@@ -13,6 +13,9 @@
 		0A90053629C787F6000EF43B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A90053429C787F6000EF43B /* Main.storyboard */; };
 		0A90053829C787FA000EF43B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A90053729C787FA000EF43B /* Assets.xcassets */; };
 		0A90053B29C787FA000EF43B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A90053929C787FA000EF43B /* LaunchScreen.storyboard */; };
+		0A90054629CBB5F0000EF43B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90054529CBB5F0000EF43B /* Game.swift */; };
+		0A90054829CCBC59000EF43B /* RandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90054729CCBC59000EF43B /* RandomGenerator.swift */; };
+		0A90054A29CCBCE3000EF43B /* GameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90054929CCBCE3000EF43B /* GameRound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		0A90053729C787FA000EF43B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A90053A29C787FA000EF43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A90053C29C787FA000EF43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A90054529CBB5F0000EF43B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		0A90054729CCBC59000EF43B /* RandomGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGenerator.swift; sourceTree = "<group>"; };
+		0A90054929CCBCE3000EF43B /* GameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		0A90052D29C787F6000EF43B /* Right on target */ = {
 			isa = PBXGroup;
 			children = (
+				0A90054429CBB5B0000EF43B /*  Model */,
 				0A90052E29C787F6000EF43B /* AppDelegate.swift */,
 				0A90053029C787F6000EF43B /* SceneDelegate.swift */,
 				0A90053229C787F6000EF43B /* ViewController.swift */,
@@ -65,6 +72,16 @@
 				0A90053C29C787FA000EF43B /* Info.plist */,
 			);
 			path = "Right on target";
+			sourceTree = "<group>";
+		};
+		0A90054429CBB5B0000EF43B /*  Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A90054529CBB5F0000EF43B /* Game.swift */,
+				0A90054729CCBC59000EF43B /* RandomGenerator.swift */,
+				0A90054929CCBCE3000EF43B /* GameRound.swift */,
+			);
+			path = " Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +157,10 @@
 			files = (
 				0A90053329C787F6000EF43B /* ViewController.swift in Sources */,
 				0A90052F29C787F6000EF43B /* AppDelegate.swift in Sources */,
+				0A90054829CCBC59000EF43B /* RandomGenerator.swift in Sources */,
 				0A90053129C787F6000EF43B /* SceneDelegate.swift in Sources */,
+				0A90054A29CCBCE3000EF43B /* GameRound.swift in Sources */,
+				0A90054629CBB5F0000EF43B /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +319,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reidak18.Right-on-target";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -327,7 +347,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reidak18.Right-on-target";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

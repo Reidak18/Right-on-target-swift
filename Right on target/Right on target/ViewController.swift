@@ -10,38 +10,29 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var targetNumberLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
-    private var targetNumber: Int = 0
-    private var round = 0
-    private var points = 0
+    private let game = Game(startValue: 1, endValue: 50, rounds: 5)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        targetNumber = generateNumber()
-        targetNumberLabel.text = "\(targetNumber)"
+        game.restartGame()
+        targetNumberLabel.text = "\(game.currentSecretValue)"
     }
     
     @IBAction func onCheck(_ sender: UIButton) {
         let sliderValue = Int(slider.value.rounded())
-        points += 50 - abs(sliderValue - targetNumber)
-        round += 1
-        if round >= 5 {
+        game.calculateScore(with: sliderValue)
+        if game.startNewRound() {
             let alert = UIAlertController(title: "Game finished",
-                                          message: "Finish. You earned \(points) points",
+                                          message: "Finish. You earned \(game.score) points",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Play again",
                                           style: .default,
                                           handler: nil))
             present(alert, animated: true)
-            round = 0
-            points = 0
+            self.game.restartGame()
         }
-
-        targetNumber = generateNumber()
-        targetNumberLabel.text = "\(targetNumber)"
-    }
-    
-    func generateNumber() -> Int {
-        return Int.random(in: 1...50)
+        
+        self.targetNumberLabel.text = "\(self.game.currentSecretValue)"
     }
 }
 
