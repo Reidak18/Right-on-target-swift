@@ -10,7 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var targetNumberLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
-    private let game = Game(startValue: 1, endValue: 50, rounds: 5)!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    private let game: GameProtocol = Game(5)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,19 +22,23 @@ class ViewController: UIViewController {
     
     @IBAction func onCheck(_ sender: UIButton) {
         let sliderValue = Int(slider.value.rounded())
-        game.calculateScore(with: sliderValue)
-        if game.startNewRound() {
+        game.updateScore(with: sliderValue)
+        
+        if game.isGameEnded {
             let alert = UIAlertController(title: "Game finished",
                                           message: "Finish. You earned \(game.score) points",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Play again",
-                                          style: .default,
-                                          handler: nil))
+                                          style: .default, handler: { _ in
+                self.game.restartGame()
+                self.targetNumberLabel.text = "\(self.game.currentSecretValue)"
+            }))
             present(alert, animated: true)
-            self.game.restartGame()
         }
-        
-        self.targetNumberLabel.text = "\(self.game.currentSecretValue)"
+        else {
+            game.startNewRound()
+            self.targetNumberLabel.text = "\(self.game.currentSecretValue)"
+        }
     }
 }
 
